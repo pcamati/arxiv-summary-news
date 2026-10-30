@@ -1,0 +1,90 @@
+# Causal inference: where to look on arXiv and which phrases make a paper worth reading.
+# Screening rules and the reasoning behind these lists: .claude/skills/causal-inference-sources/SKILL.md
+# Keywords only shortlist papers; relevance is judged from the abstract.
+
+title = "causal inference"
+
+categories = [
+    # core
+    "stat.ME", "econ.EM", "stat.ML", "cs.LG", "cs.AI",
+    # secondary
+    "stat.AP", "math.ST", "econ.GN", "cs.CY", "cs.SI", "cs.IR", "cs.CL", "q-bio.QM", "q-bio.PE",
+]
+
+keywords = [
+    # general
+    'causal',
+    'counterfactual',
+    'confound',
+    'interventions?\b',
+    'interventional',
+    'identifiab',
+    'estimands?\b',
+    # treatment effects / estimation
+    'treatment effects?',
+    'potential outcomes?',
+    'propensity',
+    'doubly robust',
+    'inverse probability weight',
+    'policy evaluation',
+    'off-policy evaluation',
+    'heterogeneous effects?',
+    'uplift',
+    # designs
+    'instrumental variables?',
+    'difference-in-differences?',
+    'synthetic control',
+    'regression discontinuit',
+    'natural experiment',
+    'quasi-experiment',
+    'event[- ]stud(y|ies)',
+    'randomi[sz]ed (controlled |clinical )?(trial|experiment)',
+    'randomi[sz]ed (expansion|rollout|assignment)',
+    'indirect comparison',
+    'population[- ]adjust',
+    'impulse responses?',
+    '\bA/B test',
+    'observational (study|studies|data)',
+    'target trial',
+    'mendelian randomi[sz]ation',
+    # mediation / sensitivity / bias
+    '\bmediat(ion|or|ors|ed|ing)\b',
+    'sensitivity analysis',
+    'selection bias',
+    'spurious',  # noisy ("spurious minima") but catches latent-confounding papers
+    'endogene?ity',
+    'identification strateg',
+    'collider',
+    'backdoor (criterion|adjustment|path)',
+    'front-?door',
+    'do-calculus',
+    'negative control',
+    'proximal',
+    'transportab',
+    'external validity',
+    # interference / networks
+    'peer effects?',
+    'spillovers?',
+    # graphs / discovery
+    'structural equation',
+    '\bDAGs?\b',
+    'granger',
+]
+
+# Removed before matching: uses of "causal" that mean autoregressive or non-anticipative,
+# and optimization terms that contain a keyword.
+false_positives = [
+    'causal (self-)?attention',
+    'causal(ly)?[- ]mask(ed|ing|s)?',
+    'causal (language model|LM)(s|ing)?',
+    'causal (transformer|decoder|convolution|conv|filter|padding)s?',
+    'causal (history|prefix|order(ing)?|past|video)',
+    'causal information access',
+    'causal execution',
+    'proximal (policy|gradient|descent|operator|point)',
+]
+
+[sections]
+core = "Core causal inference"
+methods = "Counterfactual or interventional methods"
+loose = "Loosely related"

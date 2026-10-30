@@ -1,0 +1,27 @@
+[project]
+name = "arxiv-summary-news"
+version = "0.1.0"
+description = "Fetch arXiv preprints, screen them by topic, and summarize them as Markdown"
+readme = "README.md"
+authors = [
+    { name = "Patrice Camati", email = "patrice.camati@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+arxiv-fetch = "arxiv_summary_news.fetch:main"
+arxiv-md = "arxiv_summary_news.to_markdown:main"
+arxiv-screen = "arxiv_summary_news.screen:main"
+arxiv-topic-md = "arxiv_summary_news.topic_md:main"
+arxiv-paper = "arxiv_summary_news.paper:main"
+
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.0",
+]

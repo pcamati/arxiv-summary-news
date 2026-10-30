@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Fetched arXiv data
+data/
+
+# Claude Code personal settings
+.claude/settings.local.json
